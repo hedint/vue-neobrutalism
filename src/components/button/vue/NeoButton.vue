@@ -11,10 +11,9 @@ import { computed } from "vue";
 const props = withDefaults(defineProps<NeoButtonProps>(), {
   variant: "primary",
   size: "medium",
+  shape: "rounded",
   disabled: false,
   loading: false,
-  target: undefined,
-  href: undefined,
 });
 
 const emit = defineEmits<{
@@ -22,9 +21,8 @@ const emit = defineEmits<{
 }>();
 
 const className = computed(() => {
-  return [`neo-button--variant-${props.variant}`, `neo-button--size-${props.size}`, {
+  return [`neo-button--variant-${props.variant}`, `neo-button--size-${props.size}`, `neo-button--shape-${props.shape}`, {
     "neo-button--disabled": props.disabled,
-    "neo-button--loading": props.loading,
   }];
 });
 

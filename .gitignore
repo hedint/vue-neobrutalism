@@ -22,11 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
+*~
 .template
 /.idea
 /.vscode
 /node_modules
 
 /storybook-static
-dist

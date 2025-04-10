@@ -1,7 +1,8 @@
-import { defineConfig, UserConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import path from 'path';
-import { fileURLToPath } from 'url'; // Use URL API for __dirname equivalent in ESM
+import type { UserConfig } from "vite";
+import path from "node:path";
+import { fileURLToPath } from "node:url"; // Use URL API for __dirname equivalent in ESM
+import vue from "@vitejs/plugin-vue";
+import { defineConfig } from "vite";
 
 // Get __dirname equivalent in ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -15,34 +16,34 @@ export default defineConfig({
   resolve: {
     // Optional: Setup aliases for cleaner imports within your library
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      "@": path.resolve(__dirname, "src"),
     },
   },
   build: {
     // Enable library mode
     lib: {
       // Entry point for your library (now a .ts file)
-      entry: path.resolve(__dirname, 'src/index.ts'), // Adjusted path to .ts
+      entry: path.resolve(__dirname, "src/index.ts"), // Adjusted path to .ts
 
-      // The name for the UMD global variable (e.g., window.VueNeobrutalistLibrary)
-      name: 'VueNeobrutalistLibrary', // Use PascalCase
+      // The name for the UMD global variable (e.g., window.VueneobrutalismLibrary)
+      name: "VueNeobrutalismLibrary", // Use PascalCase
 
       // Output file name (without extension)
-      fileName: 'vue-neobrutalist', // Keep it simple, Vite adds format suffix
+      fileName: "vue-neobrutalism", // Keep it simple, Vite adds format suffix
 
       // Output formats ('es' for ESM, 'umd' for UMD)
-      formats: ['es', 'umd'],
+      formats: ["es", "umd"],
     },
     rollupOptions: {
       // **Crucial:** Externalize dependencies that shouldn't be bundled
-      external: ['vue'],
+      external: ["vue"],
       output: {
         // Provide global variables to use in the UMD build
         globals: {
-          vue: 'Vue', // Map 'vue' import to global 'Vue' variable
+          vue: "Vue", // Map 'vue' import to global 'Vue' variable
         },
         // Ensure asset file names are handled (Vite's default usually works)
-        // assetFileNames: 'vue-neobrutalist.[ext]', // Example if needed
+        // assetFileNames: 'vue-neobrutalism.[ext]', // Example if needed
       },
     },
     // Generate source maps for debugging

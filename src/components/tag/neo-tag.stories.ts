@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-// NeoTag.stories.ts
 import NeoTag from "./vue/NeoTag.vue";
 
 const meta: Meta<typeof NeoTag> = {

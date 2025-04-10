@@ -12,7 +12,7 @@
     "moduleResolution": "Bundler", // Align module resolution with bundlers like Vite
     "resolveJsonModule": true, // Allow importing JSON files
     "isolatedModules": true, // Ensure each file can be safely transpiled without relying on other imports
-    "noEmit": true, // We only use tsc for type checking; Vite handles emit. Set to false if using tsc to emit declarations separately.
+    "noEmit": false, // We only use tsc for type checking; Vite handles emit. Set to false if using tsc to emit declarations separately.
 
     /* Library Specific Options */
     "declaration": true, // Generate corresponding '.d.ts' file (important for libraries)
@@ -33,7 +33,9 @@
   ],
   "exclude": [ // Exclude files from compilation
     "node_modules",
-    "dist"
+    "dist",
+    "src/stories/**/*",
+    "src/components/**/*.stories.ts"
   ],
   // Optional: Extend a base config provided by Vue or others
   // "extends": "@vue/tsconfig/tsconfig.dom.json"

@@ -36,6 +36,30 @@ export const Primary: Story = {
   },
 };
 
+export const PrimarySquare: Story = {
+  args: {
+    default: "🚀 Launch!",
+    shape: "square",
+  },
+  render: args => ({
+    components: { NeoButton },
+    setup: () => ({ args }),
+    template: "<NeoButton v-bind='args' >{{args.default}}</NeoButton>",
+  }),
+};
+
+export const PrimaryPill: Story = {
+  args: {
+    default: "🚀 Launch!",
+    shape: "pill",
+  },
+  render: args => ({
+    components: { NeoButton },
+    setup: () => ({ args }),
+    template: "<NeoButton v-bind='args' >{{args.default}}</NeoButton>",
+  }),
+};
+
 export const Reverse: Story = {
   args: {
     default: "Click Me", // Using 'default' to represent the slot content
@@ -48,6 +72,17 @@ export const Reverse: Story = {
       template: "<NeoButton v-bind='args' >{{args.default}}</NeoButton>",
     };
   },
+};
+export const Disabled: Story = {
+  args: {
+    default: "Cannot Click",
+    disabled: true,
+  },
+  render: args => ({
+    components: { NeoButton },
+    setup: () => ({ args }),
+    template: "<NeoButton :disabled=\"args.disabled\" > {{ args.default }}</NeoButton>",
+  }),
 };
 
 export const Neutral: Story = {
@@ -89,26 +124,4 @@ export const Text: Story = {
       template: "<NeoButton v-bind='args' >{{args.default}}</NeoButton>",
     };
   },
-};
-export const WithEmoji: Story = {
-  args: {
-    default: "🚀 Launch!",
-  },
-  render: args => ({
-    components: { NeoButton },
-    setup: () => ({ args }),
-    template: "<NeoButton v-bind='args' >{{args.default}}</NeoButton>",
-  }),
-};
-
-export const Disabled: Story = {
-  args: {
-    default: "Cannot Click",
-    disabled: true,
-  },
-  render: args => ({
-    components: { NeoButton },
-    setup: () => ({ args }),
-    template: "<NeoButton :disabled=\"args.disabled\" > {{ args.default }}</NeoButton>",
-  }),
 };
