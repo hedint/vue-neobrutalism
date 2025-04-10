@@ -1,0 +1,42 @@
+/* src/assets/theme.css */
+
+/* Define base neobrutalism theme variables */
+
+:root {
+    /* Colors */
+
+    --neo-black: #000;        /* Pure black */
+    --neo-white: #fff;        /* Pure white */
+    --neo-red: #ff005d;       /* Saturated red-pink */
+    --neo-yellow: #fde047;    /* Punchy yellow */
+    --neo-blue: #00c4ff;      /* Electric cyan-blue */
+    --neo-green: #00ff85;     /* Bright mint green */
+    --neo-purple: #b400ff;    /* Bold violet */
+    --neo-orange: #ff6a00;    /* Vivid orange */
+    --neo-pink: #ff80c3;      /* Soft but vibrant pink */
+    --neo-lime: #d4ff00;      /* Eye-catching lime */
+    --neo-sky: #00f0ff;       /* Lighter sky blue */
+    --neo-beige: #fff1b6;     /* Warm background-ish beige */
+    --neo-primary-bg: var(--neo-white); /* White background */
+    --neo-primary-text: var(--neo-black); /* Black text */
+    --neo-accent-bg: var(--neo-yellow); /* A bright yellow for accents/hover */
+    --neo-border-color: var(--neo-black); /* Black borders */
+    --neo-shadow-color: var(--neo-black); /* Black shadows */
+
+    /* Dimensions & Styles */
+    --neo-border-width: 2px;
+    --neo-shadow-offset-x: 4px;
+    --neo-shadow-offset-y: 4px;
+    --neo-border-radius: 6px; /* Slight rounding, can be 0 for sharper corners */
+    --neo-padding-y: 0.75rem; /* 12px */
+    --neo-padding-x: 1.5rem;  /* 24px */
+
+    /* Fonts */
+    --neo-font-family: 'Inter', sans-serif; /* Using Inter as a clean default */
+    --neo-font-weight: 600; /* Semi-bold */
+
+    /* Transitions */
+    --neo-transition-duration: 0.15s;
+    --neo-transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+

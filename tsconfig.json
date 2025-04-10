@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "ESNext", // Target modern JavaScript features
+    "module": "ESNext", // Use modern module system
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Standard libraries
+    "jsx": "preserve", // Preserve JSX for Vue compiler
+    "strict": true, // Enable all strict type-checking options
+    "esModuleInterop": true, // Enables emit interoperability between CommonJS and ES Modules
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file.
+    "moduleResolution": "Bundler", // Align module resolution with bundlers like Vite
+    "resolveJsonModule": true, // Allow importing JSON files
+    "isolatedModules": true, // Ensure each file can be safely transpiled without relying on other imports
+    "noEmit": true, // We only use tsc for type checking; Vite handles emit. Set to false if using tsc to emit declarations separately.
+
+    /* Library Specific Options */
+    "declaration": true, // Generate corresponding '.d.ts' file (important for libraries)
+    "declarationDir": "./dist/types", // Output directory for declaration files
+    "sourceMap": true, // Generate corresponding '.map' file (for sourcemap in build config)
+    "outDir": "./dist", // Specify output directory (though Vite handles the actual build output)
+    "baseUrl": ".", // Base directory to resolve non-relative module names
+    "paths": { // Match Vite's aliases if you use them
+      "@/*": ["src/*"]
+    }
+  },
+  "include": [
+    "src/**/*.ts", // Include all TypeScript files in src
+    "src/**/*.d.ts", // Include TypeScript declaration files
+    "src/**/*.tsx", // Include TypeScript JSX files
+    "src/**/*.vue", // Include Vue files
+    "vite.config.ts" // Include Vite config for type checking
+  ],
+  "exclude": [ // Exclude files from compilation
+    "node_modules",
+    "dist"
+  ],
+  // Optional: Extend a base config provided by Vue or others
+  // "extends": "@vue/tsconfig/tsconfig.dom.json"
+}

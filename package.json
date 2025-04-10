@@ -1,0 +1,63 @@
+{
+  "name": "vue-neorutalism",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "main": "./dist/vue-neorutalism.umd.js",
+  "module": "./dist/vue-neorutalism.es.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/vue-neorutalism.es.js"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/vue-neorutalism.umd.js"
+      }
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc --emitDeclarationOnly --outDir dist/types",
+    "typecheck": "vue-tsc --noEmit",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.11.0",
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/addon-interactions": "^8.6.12",
+    "@storybook/addon-links": "^8.6.12",
+    "@storybook/blocks": "^8.6.12",
+    "@storybook/test": "^8.6.12",
+    "@storybook/vue3": "^8.6.12",
+    "@storybook/vue3-vite": "^8.6.12",
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "eslint": "^9.24.0",
+    "eslint-plugin-storybook": "^0.12.0",
+    "sass": "^1.86.3",
+    "storybook": "^8.6.12",
+    "stylelint": "^16.18.0",
+    "stylelint-config-idiomatic-order": "^10.0.0",
+    "stylelint-config-recommended-scss": "^14.1.0",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.2.5",
+    "vue": "^3.5.13",
+    "vue-tsc": "^2.2.8"
+  },
+  "engines": {
+    "node": ">=20.17.0"
+  }
+}

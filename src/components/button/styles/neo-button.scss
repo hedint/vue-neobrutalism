@@ -1,0 +1,86 @@
+// Mixin for the neobrutalist shadow
+@mixin neo-shadow {
+  box-shadow: var(--neo-shadow-offset-x) var(--neo-shadow-offset-y) 0 var(--neo-shadow-color);
+}
+
+// Mixin for smooth transitions
+@mixin smooth-transition {
+  transition: transform var(--neo-transition-duration) var(--neo-transition-timing),
+  box-shadow var(--neo-transition-duration) var(--neo-transition-timing),
+  background-color var(--neo-transition-duration) var(--neo-transition-timing);
+}
+
+.neo-button {
+  position: relative;
+  display: inline-block;
+  padding: var(--neo-padding-y) var(--neo-padding-x);
+  border: var(--neo-border-width) solid var(--neo-border-color);
+  border-radius: var(--neo-border-radius);
+  appearance: none;
+  background-color: var(--neo-accent-bg);
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+
+  @include smooth-transition;
+
+  &--disabled {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  &--variant {
+    &-primary, &-reverse {
+      font-weight: var(--neo-font-weight);
+    }
+
+    &-primary, &-neutral {
+      @include neo-shadow;
+
+      &:hover {
+        box-shadow: none;
+        transform: translate(var(--neo-shadow-offset-x), var(--neo-shadow-offset-y));
+      }
+    }
+
+    &-reverse, &-reverse-neutral {
+      box-shadow: none;
+
+      &:hover {
+        @include neo-shadow;
+
+        transform: translate(var(--neo-shadow-offset-x), var(--neo-shadow-offset-y));
+      }
+    }
+
+    &-neutral, &-reverse-neutral {
+      background-color: var(--neo-primary-bg);
+    }
+
+    &-text {
+      border: none;
+      background-color: transparent;
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        transform: translate(0, -4px);
+      }
+    }
+  }
+
+  &--size {
+    &-small {
+      font-size: 1rem;
+    }
+
+    &-medium {
+      font-size: 1.2rem;
+    }
+
+    &-large {
+      font-size: 1.5rem;
+    }
+  }
+
+}
