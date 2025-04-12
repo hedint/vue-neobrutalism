@@ -1,6 +1,6 @@
 {
   "name": "vue-neobrutalism",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Vue 3 neobrutalism ui kit",
   "repository": "https://github.com/hedint/vue-neobrutalism",
   "keywords": [
@@ -27,11 +27,11 @@
     ".": {
       "import": {
         "types": "./dist/types/index.d.ts",
-        "default": "./dist/vue-neorutalism.js"
+        "default": "./dist/vue-neobrutalism.js"
       },
       "require": {
         "types": "./dist/types/index.d.ts",
-        "default": "./dist/vue-neorutalism.umd.cjs"
+        "default": "./dist/vue-neobrutalism.umd.cjs"
       }
     },
     "./style.css": "./dist/vue-neobrutalism.css"
