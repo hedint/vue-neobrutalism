@@ -1,6 +1,6 @@
 {
   "name": "vue-neobrutalism",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Vue 3 neobrutalism ui kit",
   "repository": "https://github.com/hedint/vue-neobrutalism",
   "keywords": [
@@ -20,8 +20,8 @@
   "type": "module",
   "author": "Vyacheslav Volodin<vachvol@gmail.com>",
   "license": "MIT",
-  "main": "./dist/vue-neorutalism.umd.cjs",
-  "module": "./dist/vue-neorutalism.js",
+  "main": "./dist/vue-neobrutalism.umd.cjs",
+  "module": "./dist/vue-neobrutalism.js",
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
