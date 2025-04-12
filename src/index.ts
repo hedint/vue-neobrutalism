@@ -3,6 +3,8 @@
 
 // Import all components you want to export from your library
 import NeoButton from "./components/button/vue/NeoButton.vue";
+import NeoCard from "./components/card/vue/NeoCard.vue";
+import NeoInput from "./components/input/vue/NeoInput.vue";
 import NeoTag from "./components/tag/vue/NeoTag.vue";
 // Import other components like NeoCard, NeoInput, etc.
 // import NeoCard from './components/NeoCard.vue';
@@ -12,7 +14,7 @@ import NeoTag from "./components/tag/vue/NeoTag.vue";
 import "./assets/styles/theme.css";
 
 // Export components individually
-export { NeoButton, NeoTag };
+export { NeoButton, NeoCard, NeoInput, NeoTag };
 
 // Optional: Export a plugin install function with type safety
 // This allows users to install all components globally via `app.use(MyLibrary)`
