@@ -27,21 +27,21 @@
     ".": {
       "import": {
         "types": "./dist/types/index.d.ts",
-        "default": "./dist/vue-neorutalism.es.js"
+        "default": "./dist/vue-neorutalism.js"
       },
       "require": {
         "types": "./dist/types/index.d.ts",
-        "default": "./dist/vue-neorutalism.umd.js"
+        "default": "./dist/vue-neorutalism.umd.cjs"
       }
     },
-    "./style.css": "./dist/style.css"
+    "./style.css": "./dist/vue-neobrutalism.css"
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vue-tsc --emitDeclarationOnly --outDir /dist/types",
+    "build": "vite build && vue-tsc --emitDeclarationOnly",
     "typecheck": "vue-tsc --noEmit",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",

@@ -29,7 +29,6 @@
     "src/**/*.d.ts", // Include TypeScript declaration files
     "src/**/*.tsx", // Include TypeScript JSX files
     "src/**/*.vue", // Include Vue files
-    "vite.config.ts" // Include Vite config for type checking
   ],
   "exclude": [ // Exclude files from compilation
     "node_modules",
