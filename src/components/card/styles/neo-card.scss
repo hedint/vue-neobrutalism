@@ -1,0 +1,32 @@
+@use "../../../assets/styles/neo-mixins";
+
+.neo-card {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    border: var(--neo-border-width) solid var(--neo-border-color);
+    border-radius: var(--neo-border-radius);
+    background: var(--neo-primary-bg);
+    color: var(--neo-primary-text);
+    text-decoration: none;
+
+    &--interactive {
+        cursor: pointer;
+
+        @include neo-mixins.smooth-transition;
+
+        &:not(.neo-card--disabled):hover {
+            @include neo-mixins.neo-shadow;
+        }
+    }
+
+    &--disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
+    @include neo-mixins.shape-props(2);
+    @include neo-mixins.bg-color-props;
+}

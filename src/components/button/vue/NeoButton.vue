@@ -1,32 +1,67 @@
 <template>
-  <button class="neo-button" :class="className" :disabled="props.disabled" @click="handleClick">
+  <component
+    :is="component"
+    class="neo-button"
+    v-bind="mergedAttrs"
+    :class="className"
+    :style="style"
+    @click="handleClick"
+  >
     <slot />
-  </button>
+  </component>
 </template>
 
 <script setup lang="ts">
 import type { NeoButtonProps } from "../types/neo-button-props";
-import { computed } from "vue";
+import { computed, toRef, useAttrs } from "vue";
+import { useBgColor } from "../../../composables/use-bg-color";
 
+defineOptions({
+  name: "NeoButton",
+  inheritAttrs: false,
+});
 const props = withDefaults(defineProps<NeoButtonProps>(), {
+  component: "button",
   variant: "primary",
   size: "medium",
   shape: "rounded",
-  disabled: false,
+  isDisabled: false,
   loading: false,
 });
-
 const emit = defineEmits<{
   (e: "click", event: MouseEvent): void
 }>();
 
-const className = computed(() => {
-  return [`neo-button--variant-${props.variant}`, `neo-button--size-${props.size}`, `neo-button--shape-${props.shape}`, {
-    "neo-button--disabled": props.disabled,
-  }];
+const isButton = computed(() => props.component === "button");
+const $attrs = useAttrs();
+const mergedAttrs = computed(() => {
+  // Remove `disabled` and `type` from attrs if not a <button>
+  const { disabled, type, ...rest } = $attrs;
+  return isButton.value ? $attrs : rest;
 });
 
+const { bgClassName, bgStyle } = useBgColor("neo-button", toRef(props, "bgColor"));
+
+const canBeColored = computed(() => {
+  return props.variant === "primary" || props.variant === "reverse";
+});
+const className = computed(() => {
+  return [
+    canBeColored.value && bgClassName.value,
+    `neo-button--variant-${props.variant}`,
+    `neo-button--size-${props.size}`,
+    `neo-button--shape-${props.shape}`,
+    {
+      "neo-button--disabled": props.isDisabled,
+    },
+  ];
+});
+const style = computed(() => (canBeColored.value ? bgStyle.value : {}));
 function handleClick(event: MouseEvent) {
+  if (props.isDisabled) {
+    event.preventDefault();
+    return;
+  }
   emit("click", event);
 }
 </script>

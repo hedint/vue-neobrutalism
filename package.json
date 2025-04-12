@@ -20,7 +20,6 @@
   "type": "module",
   "author": "Vyacheslav Volodin<vachvol@gmail.com>",
   "license": "MIT",
-
   "main": "./dist/vue-neorutalism.umd.js",
   "module": "./dist/vue-neorutalism.es.js",
   "types": "./dist/types/index.d.ts",
@@ -46,7 +45,8 @@
     "typecheck": "vue-tsc --noEmit",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "deploy-storybook": "storybook build && gh-pages -d storybook-static"
   },
   "peerDependencies": {
     "vue": "^3.5.13"
@@ -64,6 +64,7 @@
     "@vitejs/plugin-vue": "^5.2.3",
     "eslint": "^9.24.0",
     "eslint-plugin-storybook": "^0.12.0",
+    "gh-pages": "^6.3.0",
     "sass": "^1.86.3",
     "storybook": "^8.6.12",
     "stylelint": "^16.18.0",

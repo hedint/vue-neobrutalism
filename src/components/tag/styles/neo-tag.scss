@@ -1,7 +1,8 @@
-/* Base tag style */
+@use "../../../assets/styles/neo-mixins";
 
 .neo-tag {
   display: inline-block;
+  box-sizing: border-box;
   padding: 0.4em 0.8em;
   border: var(--neo-border-width, 1px) solid var(--neo-border-color, transparent);
   border-radius: var(--neo-border-radius, 4px);
@@ -15,17 +16,6 @@
   &--text-neo-black { color: #000; }
   &--text-neo-white { color: #fff; }
 
-  // Background Colors
-  &--bg-neo-white  { background-color: var(--neo-white); }
-  &--bg-neo-black  { background-color:var(--neo-black); }
-  &--bg-neo-red    { background-color: var(--neo-red); }
-  &--bg-neo-yellow { background-color: var(--neo-yellow); }
-  &--bg-neo-blue   { background-color: var(--neo-blue); }
-  &--bg-neo-green  { background-color: var(--neo-green); }
-  &--bg-neo-purple { background-color: var(--neo-purple); }
-  &--bg-neo-orange { background-color: var(--neo-orange); }
-  &--bg-neo-pink   { background-color: var(--neo-pink); }
-  &--bg-neo-lime   { background-color: var(--neo-lime); }
-  &--bg-neo-sky    { background-color: var(--neo-sky); }
-  &--bg-neo-beige  { background-color: var(--neo-beige); }
+
+  @include neo-mixins.bg-color-props;
 }

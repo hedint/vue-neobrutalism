@@ -30,6 +30,8 @@
     --neo-border-radius: 6px; /* Slight rounding, can be 0 for sharper corners */
     --neo-padding-y: 0.75rem; /* 12px */
     --neo-padding-x: 1.5rem;  /* 24px */
+    --neo-padding-y-small: 0.5rem; /* 12px */
+    --neo-padding-x-small: 1rem;  /* 24px */
 
     /* Fonts */
     --neo-font-family: 'Inter', sans-serif; /* Using Inter as a clean default */

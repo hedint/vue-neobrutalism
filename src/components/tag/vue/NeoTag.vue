@@ -6,22 +6,23 @@
 
 <script setup lang="ts">
 import type { NeoTagProps } from "../types/neo-tag-props";
-import { computed } from "vue";
+import { computed, toRef } from "vue";
+import { useBgColor } from "../../../composables/use-bg-color";
 
 const props = withDefaults(defineProps<NeoTagProps>(), {
   bgColor: "neo-white",
   textColor: "neo-black",
 });
-const predefinedBgColors = ["neo-white", "neo-black", "neo-red", "neo-yellow", "neo-blue", "neo-green", "neo-purple", "neo-orange", "neo-pink", "neo-lime", "neo-sky", "neo-beige"];
+const { bgClassName, bgStyle } = useBgColor("neo-tag", toRef(props, "bgColor"));
 const predefinedTextColors = ["neo-black", "neo-white"];
 const className = computed(() =>
   [
-    predefinedBgColors.includes(props.bgColor) && `neo-tag--bg-${props.bgColor}`,
+    bgClassName.value,
     predefinedTextColors.includes(props.textColor) && `neo-tag--text-${props.textColor}`,
   ].filter(Boolean),
 );
 const styles = computed(() => ({
-  ...(!predefinedBgColors.includes(props.bgColor) && { backgroundColor: props.bgColor }),
+  ...bgStyle.value,
   ...(!predefinedTextColors.includes(props.textColor) && { color: props.textColor }),
 }));
 </script>

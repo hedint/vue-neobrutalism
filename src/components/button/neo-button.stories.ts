@@ -9,30 +9,29 @@ const meta: Meta<typeof NeoButton> = {
   // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/vue/writing-docs/autodocs
   tags: ["autodocs"],
   argTypes: {
-    disabled: { control: "boolean" },
+    isDisabled: { control: "boolean" },
     default: { control: "text" },
   },
+
   args: {
     // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
     onClick: fn(),
   },
+  render: args => ({
+    components: { NeoButton },
+    setup: () => ({ args }),
+    template: `<NeoButton v-bind="args" @click="args.onClick">{{ args.default }}</NeoButton>`,
+  }),
 };
 
 export default meta;
 
 type Story = StoryObj<typeof NeoButton>;
 
-// More on writing stories with args: https://storybook.js.org/docs/vue/writing-stories/args
 export const Primary: Story = {
   args: {
-    default: "Click Me", // Using 'default' to represent the slot content
-  },
-  render: (args) => {
-    return {
-      components: { NeoButton },
-      setup: () => ({ args }),
-      template: "<NeoButton >{{args.default}}</NeoButton>",
-    };
+    default: "Click Me",
+    variant: "primary",
   },
 };
 
@@ -41,11 +40,6 @@ export const PrimarySquare: Story = {
     default: "🚀 Launch!",
     shape: "square",
   },
-  render: args => ({
-    components: { NeoButton },
-    setup: () => ({ args }),
-    template: "<NeoButton v-bind='args' >{{args.default}}</NeoButton>",
-  }),
 };
 
 export const PrimaryPill: Story = {
@@ -53,75 +47,62 @@ export const PrimaryPill: Story = {
     default: "🚀 Launch!",
     shape: "pill",
   },
-  render: args => ({
-    components: { NeoButton },
-    setup: () => ({ args }),
-    template: "<NeoButton v-bind='args' >{{args.default}}</NeoButton>",
-  }),
 };
 
 export const Reverse: Story = {
   args: {
-    default: "Click Me", // Using 'default' to represent the slot content
+    default: "Click Me",
     variant: "reverse",
-  },
-  render: (args) => {
-    return {
-      components: { NeoButton },
-      setup: () => ({ args }),
-      template: "<NeoButton v-bind='args' >{{args.default}}</NeoButton>",
-    };
   },
 };
 export const Disabled: Story = {
   args: {
     default: "Cannot Click",
-    disabled: true,
+    isDisabled: true,
   },
-  render: args => ({
-    components: { NeoButton },
-    setup: () => ({ args }),
-    template: "<NeoButton :disabled=\"args.disabled\" > {{ args.default }}</NeoButton>",
-  }),
 };
 
 export const Neutral: Story = {
   args: {
-    default: "Click Me", // Using 'default' to represent the slot content
+    default: "Click Me",
     variant: "neutral",
-  },
-  render: (args) => {
-    return {
-      components: { NeoButton },
-      setup: () => ({ args }),
-      template: "<NeoButton v-bind='args' >{{args.default}}</NeoButton>",
-    };
   },
 };
 export const ReverseNeutral: Story = {
   args: {
-    default: "Click Me", // Using 'default' to represent the slot content
+    default: "Click Me",
     variant: "reverse-neutral",
-  },
-  render: (args) => {
-    return {
-      components: { NeoButton },
-      setup: () => ({ args }),
-      template: "<NeoButton v-bind='args' >{{args.default}}</NeoButton>",
-    };
   },
 };
 
 export const Text: Story = {
   args: {
-    default: "Click Me", // Using 'default' to represent the slot content
+    default: "Click Me",
     variant: "text",
   },
-  render: (args) => {
-    return {
-      components: { NeoButton },
-      setup: () => ({ args }),
-      template: "<NeoButton v-bind='args' >{{args.default}}</NeoButton>",
-    };
+};
+
+export const LinkComponent: Story = {
+  args: {
+    default: "Click Me",
+    variant: "text",
+    component: "a",
+    // @ts-expect-error attributes
+    href: "https://example.com",
+    target: "_blank",
+  },
+};
+
+export const PredefinedColor: Story = {
+  args: {
+    bgColor: "neo-red",
+    default: "Click Me",
+  },
+};
+
+export const CustomHexColor: Story = {
+  args: {
+    bgColor: "#FFAAAA",
+    default: "Click Me",
   },
 };

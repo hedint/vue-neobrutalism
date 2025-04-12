@@ -1,0 +1,40 @@
+@mixin bg-color-props() {
+  // Background Colors
+  @each $color in ("white", "black", "red", "yellow", "blue", "green", "purple", "orange", "pink", "lime", "sky", "beige") {
+    &--bg-neo-#{$color} {
+      background-color: var(--neo-#{$color});
+    }
+  }
+}
+
+@mixin shape-props($k: 1) {
+  &--shape {
+    &-square {
+      border-radius: 0;
+    }
+
+    &-pill {
+      border-radius: 9999px;
+    }
+
+    &-rounded {
+      @if $k == 1 {
+        border-radius: var(--neo-border-radius);
+      } @else {
+        border-radius: calc(var(--neo-border-radius) * #{$k});
+
+      }
+    }
+  }
+}
+
+@mixin neo-shadow {
+  box-shadow: var(--neo-shadow-offset-x) var(--neo-shadow-offset-y) 0 var(--neo-shadow-color);
+}
+
+// Mixin for smooth transitions
+@mixin smooth-transition {
+  transition: transform var(--neo-transition-duration) var(--neo-transition-timing),
+  box-shadow var(--neo-transition-duration) var(--neo-transition-timing),
+  background-color var(--neo-transition-duration) var(--neo-transition-timing);
+}
