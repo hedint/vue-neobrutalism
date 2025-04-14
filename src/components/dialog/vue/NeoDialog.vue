@@ -1,7 +1,7 @@
 <template>
-  <div class="neo-dialog" role="dialog" @click.self="emit('close')">
-    <div class="neo-dialog__container" :class="className">
-      <div class="neo-dialog__close" @click="emit('close')">
+  <div class="neo-dialog" role="dialog" :class="dialogClassName" @click.self="onClose">
+    <div class="neo-dialog__container" :class="containerClassName">
+      <div class="neo-dialog__close" @click="onClose">
         <slot name="close">
           <NeoButton
             is-icon
@@ -32,11 +32,22 @@ const props = withDefaults(defineProps<NeoDialogProps>(), {
 });
 const emit = defineEmits(["close"]);
 
-const className = computed(() => {
+const containerClassName = computed(() => {
   return [
     `neo-dialog__container--shape-${props.shape}`,
   ];
 });
+
+const isCloseAnimating = ref(false);
+const onClose = () => {
+  if (isCloseAnimating.value) {
+    return;
+  }
+  isCloseAnimating.value = true;
+  setTimeout(() => {
+    emit("close");
+  }, 300);
+};
 
 const documentOverflow = ref("auto");
 const onEscPressed = (event: KeyboardEvent) => {
@@ -44,6 +55,12 @@ const onEscPressed = (event: KeyboardEvent) => {
     emit("close");
   }
 };
+
+const dialogClassName = computed(() => {
+  return {
+    "neo-dialog--close-animating": isCloseAnimating.value,
+  };
+});
 
 onMounted(() => {
   documentOverflow.value = document.body.style.overflow || "auto";
