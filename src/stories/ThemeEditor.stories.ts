@@ -1,5 +1,5 @@
-import NeoButton from "@/components/button/vue/NeoButton.vue";
 import { defineComponent, reactive } from "vue";
+import NeoButton from "../components/button/vue/NeoButton.vue";
 
 type CssVarType = "color" | "text";
 

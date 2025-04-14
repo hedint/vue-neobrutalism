@@ -1,12 +1,13 @@
 <template>
   <div class="neo-dialog" role="dialog" @click.self="emit('close')">
-    <div class="neo-dialog__container">
+    <div class="neo-dialog__container" :class="className">
       <div class="neo-dialog__close" @click="emit('close')">
         <slot name="close">
           <NeoButton
             is-icon
             variant="reverse"
             size="large"
+            aria-label="Close dialog"
           >
             <IconClose />
           </NeoButton>
@@ -21,14 +22,23 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from "vue";
+import type { NeoDialogProps } from "../types/neo-dialog-props";
+import { computed, onMounted, onUnmounted, ref } from "vue";
 import NeoButton from "../../button/vue/NeoButton.vue";
 import IconClose from "../../icons/vue/IconClose.vue";
 
+const props = withDefaults(defineProps<NeoDialogProps>(), {
+  shape: "rounded",
+});
 const emit = defineEmits(["close"]);
 
-const documentOverflow = ref("auto");
+const className = computed(() => {
+  return [
+    `neo-dialog__container--shape-${props.shape}`,
+  ];
+});
 
+const documentOverflow = ref("auto");
 const onEscPressed = (event: KeyboardEvent) => {
   if (event.key === "Escape" || event.keyCode === 27) {
     emit("close");
