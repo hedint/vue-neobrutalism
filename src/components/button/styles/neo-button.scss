@@ -72,6 +72,25 @@
     }
   }
 
+  &--icon-single {
+    padding: var(--neo-padding-y-small);
+    font-size: 0;
+
+    &.neo-button--size-small svg {
+      width: 1rem;
+      height: 1rem;
+      font-size: 1rem;
+    }Z]
+      font-size: 1.2rem;
+    }
+
+    &.neo-button--size-large svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      font-size: 1.5rem;
+    }
+  }
+
   &--disabled {
     cursor: not-allowed;
     opacity: 0.7;

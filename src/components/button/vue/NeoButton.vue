@@ -53,6 +53,7 @@ const className = computed(() => {
     `neo-button--shape-${props.shape}`,
     {
       "neo-button--disabled": props.isDisabled,
+      "neo-button--icon-single": props.isIcon,
     },
   ];
 });

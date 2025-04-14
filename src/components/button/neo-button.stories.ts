@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 import { fn } from "@storybook/test";
+import IconClose from "../icons/vue/IconClose.vue";
 import NeoButton from "./vue/NeoButton.vue";
-
 // More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 const meta: Meta<typeof NeoButton> = {
   title: "Components/NeoButton",
@@ -11,6 +11,9 @@ const meta: Meta<typeof NeoButton> = {
   argTypes: {
     isDisabled: { control: "boolean" },
     default: { control: "text" },
+    size: { control: "select", options: ["medium", "small", "large"] },
+    shape: { control: "select", options: ["rounded", "square", "pill"] },
+    variant: { control: "select", options: ["primary", "reverse", "neutral", "reverse-neutral", "text"] },
   },
 
   args: {
@@ -47,6 +50,17 @@ export const PrimaryPill: Story = {
     default: "🚀 Launch!",
     shape: "pill",
   },
+};
+
+export const Icon: Story = {
+  args: {
+    isIcon: true,
+  },
+  render: args => ({
+    components: { NeoButton, IconClose },
+    setup: () => ({ args }),
+    template: `<NeoButton v-bind="args"><IconClose /></NeoButton>`,
+  }),
 };
 
 export const Reverse: Story = {

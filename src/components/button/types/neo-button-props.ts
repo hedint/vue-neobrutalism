@@ -7,5 +7,6 @@ export interface NeoButtonProps {
   shape?: NeoShape
   size?: "small" | "medium" | "large"
   isDisabled?: boolean
+  isIcon?: boolean
   bgColor?: NeoBgColor
 }
