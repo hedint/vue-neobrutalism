@@ -52,7 +52,7 @@ const onClose = () => {
 const documentOverflow = ref("auto");
 const onEscPressed = (event: KeyboardEvent) => {
   if (event.key === "Escape" || event.keyCode === 27) {
-    emit("close");
+    onClose();
   }
 };
 
