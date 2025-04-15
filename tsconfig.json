@@ -16,7 +16,6 @@
 
     /* Library Specific Options */
     "declaration": true, // Generate corresponding '.d.ts' file (important for libraries)
-    "declarationDir": "./dist/types", // Output directory for declaration files
     "sourceMap": true, // Generate corresponding '.map' file (for sourcemap in build config)
     "outDir": "./dist", // Specify output directory (though Vite handles the actual build output)
     "baseUrl": ".", // Base directory to resolve non-relative module names
@@ -29,6 +28,7 @@
     "src/**/*.d.ts", // Include TypeScript declaration files
     "src/**/*.tsx", // Include TypeScript JSX files
     "src/**/*.vue", // Include Vue files
+    "shim.d.ts"
   ],
   "exclude": [ // Exclude files from compilation
     "node_modules",

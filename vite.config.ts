@@ -24,15 +24,11 @@ export default defineConfig({
     lib: {
       // Entry point for your library (now a .ts file)
       entry: path.resolve(__dirname, "src/index.ts"), // Adjusted path to .ts
-
-      // The name for the UMD global variable (e.g., window.VueneobrutalismLibrary)
-      name: "VueNeobrutalismLibrary", // Use PascalCase
-
       // Output file name (without extension)
       fileName: "vue-neobrutalism", // Keep it simple, Vite adds format suffix
 
       // Output formats ('es' for ESM, 'umd' for UMD)
-      formats: ["es", "umd"],
+      formats: ["es"],
     },
     rollupOptions: {
       // **Crucial:** Externalize dependencies that shouldn't be bundled

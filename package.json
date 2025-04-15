@@ -1,6 +1,6 @@
 {
   "name": "vue-neobrutalism",
-  "version": "0.2.9",
+  "version": "0.2.11",
   "description": "Vue 3 neobrutalism ui kit",
   "repository": "https://github.com/hedint/vue-neobrutalism",
   "keywords": [
@@ -22,28 +22,26 @@
   "type": "module",
   "author": "Vyacheslav Volodin<vachvol@gmail.com>",
   "license": "MIT",
-  "main": "./dist/vue-neobrutalism.umd.cjs",
+  "main": "./dist/vue-neobrutalism.js",
   "module": "./dist/vue-neobrutalism.js",
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/vue-neobrutalism.js"
-      },
-      "require": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/vue-neobrutalism.umd.cjs"
-      }
+      "import": "./dist/vue-neobrutalism.js",
+      "types": "./dist/index.d.ts"
     },
-    "./style.css": "./dist/vue-neobrutalism.css"
+    "./style.css": "./dist/vue-neobrutalism.css",
+    "./dist/": {
+      "import": "./dist/",
+      "require": "./dist/"
+    }
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
     "typecheck": "vue-tsc --noEmit",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
