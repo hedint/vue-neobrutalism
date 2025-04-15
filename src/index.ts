@@ -2,11 +2,11 @@
 // import type { App } from "vue"; // Import App type for plugin installation
 
 // Import all components you want to export from your library
-import NeoButton from "./components/button/vue/NeoButton.vue";
-import NeoCard from "./components/card/vue/NeoCard.vue";
-import NeoDialog from "./components/dialog/vue/NeoDialog.vue";
-import NeoInput from "./components/input/vue/NeoInput.vue";
-import NeoTag from "./components/tag/vue/NeoTag.vue";
+import { NeoButton } from "./components/button";
+import { NeoCard } from "./components/card";
+import { NeoDialog } from "./components/dialog";
+import { NeoInput } from "./components/input";
+import { NeoTag } from "./components/tag";
 
 // Import the main CSS file if you want it bundled/extracted automatically
 // Or instruct users to import it separately.
