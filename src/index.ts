@@ -15,16 +15,18 @@ import "./assets/styles/theme.css";
 // Export components individually
 export { NeoButton, NeoCard, NeoDialog, NeoInput, NeoTag };
 
-// Optional: Export a plugin install function with type safety
-// This allows users to install all components globally via `app.use(MyLibrary)`
-/*
+// Optional: plugin install (if your lib can be used with `app.use(...)`)
 export default {
-  install: (app: App, options?: any) => { // Add type for app and optional options
+  install(app: import("vue").App) {
     app.component("NeoButton", NeoButton);
-    // app.component('NeoCard', NeoCard);
-
-    // You can also provide global configurations via options here
-    // Example: app.provide('nb-config', options);
+    app.component("NeoCard", NeoCard);
+    app.component("NeoDialog", NeoDialog);
+    app.component("NeoInput", NeoInput);
+    app.component("NeoTag", NeoTag);
   },
+  NeoButton,
+  NeoCard,
+  NeoDialog,
+  NeoInput,
+  NeoTag,
 };
- */
