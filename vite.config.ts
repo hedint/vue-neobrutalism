@@ -1,50 +1,60 @@
-import type { UserConfig } from "vite";
-import path from "node:path";
-import { fileURLToPath } from "node:url"; // Use URL API for __dirname equivalent in ESM
+// vite.config.ts
+import { resolve } from "node:path";
 import vue from "@vitejs/plugin-vue";
 import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 
-// Get __dirname equivalent in ESM
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(), // Enable Vue support
+    vue(), // Enable Vue plugin
+    dts({ // Generate declaration files (*.d.ts)
+      // Specify the entry root directory (usually 'src')
+      // This helps ensure correct output paths for declaration files.
+      entryRoot: "src",
+      // Optionally specify the output directory for declaration files
+      // Defaults to 'dist' if not specified.
+      // outputDir: 'dist/types',
+      insertTypesEntry: true, // Inserts an entry point for types in package.json
+    }),
   ],
   resolve: {
     // Optional: Setup aliases for cleaner imports within your library
     alias: {
-      "@": path.resolve(__dirname, "src"),
+      "@": resolve(__dirname, "src"),
     },
   },
   build: {
-    // Enable library mode
+    // Library Mode configuration
     lib: {
-      // Entry point for your library (now a .ts file)
-      entry: path.resolve(__dirname, "src/index.ts"), // Adjusted path to .ts
-      // Output file name (without extension)
-      fileName: "vue-neobrutalism", // Keep it simple, Vite adds format suffix
-
-      // Output formats ('es' for ESM, 'umd' for UMD)
-      formats: ["es"],
+      // The entry point for your library's source code
+      entry: resolve(__dirname, "src/index.ts"),
+      // The name for the global variable (in UMD builds)
+      name: "vueNeobrutalism",
+      // The output file name formats (without extension)
+      // - 'es' for ES module format
+      // - 'umd' for Universal Module Definition format
+      fileName: format => `vue-neobrutalism.${format}.js`,
     },
+    // Rollup specific options
     rollupOptions: {
-      // **Crucial:** Externalize dependencies that shouldn't be bundled
+      // Ensure Vue is treated as an external dependency
+      // This prevents bundling Vue core with your library
       external: ["vue"],
       output: {
         // Provide global variables to use in the UMD build
+        // for externalized deps (like Vue)
         globals: {
-          vue: "Vue", // Map 'vue' import to global 'Vue' variable
+          vue: "Vue",
         },
-        // Ensure asset file names are handled (Vite's default usually works)
-        // assetFileNames: 'vue-neobrutalism.[ext]', // Example if needed
+        // Optional: Configure exports for better tree shaking
+        // 'named' preserves named exports
+        // 'auto' lets Rollup guess
+        exports: "named",
       },
     },
-    // Generate source maps for debugging
+    // Optional: Generate sourcemaps for easier debugging
     sourcemap: true,
-    // Empty the output directory before building
+    // Optional: Empty the output directory before building
     emptyOutDir: true,
   },
-} as UserConfig); // Cast to UserConfig for type safety if needed
+});

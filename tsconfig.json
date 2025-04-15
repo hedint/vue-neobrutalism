@@ -1,41 +1,31 @@
 {
   "compilerOptions": {
-    /* Basic Options */
+    "removeComments": false,
     "target": "ESNext", // Target modern JavaScript features
-    "module": "ESNext", // Use modern module system
-    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Standard libraries
-    "jsx": "preserve", // Preserve JSX for Vue compiler
-    "strict": true, // Enable all strict type-checking options
-    "esModuleInterop": true, // Enables emit interoperability between CommonJS and ES Modules
+    "useDefineForClassFields": true,
+    "module": "ESNext", // Use ES modules
+    "lib": ["ESNext", "DOM"], // Include necessary libraries
     "skipLibCheck": true, // Skip type checking of declaration files
-    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file.
-    "moduleResolution": "Bundler", // Align module resolution with bundlers like Vite
-    "resolveJsonModule": true, // Allow importing JSON files
-    "isolatedModules": true, // Ensure each file can be safely transpiled without relying on other imports
-    "noEmit": false, // We only use tsc for type checking; Vite handles emit. Set to false if using tsc to emit declarations separately.
+    "moduleResolution": "bundler", // Use modern module resolution
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true, // Ensure files can be transpiled independently
+    "noEmit": true, // Let Vite handle emit; vue-tsc only checks types
+    "jsx": "preserve", // Preserve JSX for Vue to handle
 
-    /* Library Specific Options */
-    "declaration": true, // Generate corresponding '.d.ts' file (important for libraries)
-    "sourceMap": true, // Generate corresponding '.map' file (for sourcemap in build config)
-    "outDir": "./dist", // Specify output directory (though Vite handles the actual build output)
-    "baseUrl": ".", // Base directory to resolve non-relative module names
-    "paths": { // Match Vite's aliases if you use them
-      "@/*": ["src/*"]
-    }
+    /* Linting */
+    "strict": true, // Enable all strict type-checking options
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Library specific */
+    "declaration": true, // Generate .d.ts files (handled by vite-plugin-dts)
+    "declarationMap": true, // Generate sourcemaps for declaration files
+    "sourceMap": true, // Generate .map files for JS
+    "outDir": "dist", // Specify output directory (Vite might override this)
+    "rootDir": "src" // Specify the root directory of source files
   },
-  "include": [
-    "src/**/*.ts", // Include all TypeScript files in src
-    "src/**/*.d.ts", // Include TypeScript declaration files
-    "src/**/*.tsx", // Include TypeScript JSX files
-    "src/**/*.vue", // Include Vue files
-    "shim.d.ts"
-  ],
-  "exclude": [ // Exclude files from compilation
-    "node_modules",
-    "dist",
-    "src/stories/**/*",
-    "src/components/**/*.stories.ts"
-  ],
-  // Optional: Extend a base config provided by Vue or others
-  // "extends": "@vue/tsconfig/tsconfig.dom.json"
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"], // Files to include in compilation
+  "exclude": ["node_modules", "dist", "src/**/*.stories.ts"] // Exclude build output and dependencies
 }
