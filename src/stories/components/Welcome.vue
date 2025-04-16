@@ -1,6 +1,8 @@
 <template>
   <div style="padding: 2rem; max-width: 700px">
-    <h1 style="font-size: 2rem;">👋 Welcome to vue-neobrutalism</h1>
+    <h1 style="font-size: 2rem;">
+      👋 Welcome to vue-neobrutalism
+    </h1>
     <p style="margin-top: 1rem; font-size: 1.1rem;">
       A bold, expressive UI component library for Vue 3, inspired by the neobrutalist design movement.
     </p>
