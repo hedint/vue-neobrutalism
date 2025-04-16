@@ -6,8 +6,8 @@
 
 <script setup lang="ts">
 import type { NeoCardProps } from "../types/neo-card-props";
-import { useBgColor } from "@/composables/use-bg-color";
 import { computed, toRef } from "vue";
+import { useBgColor } from "../../../composables/use-bg-color";
 
 const props = withDefaults(defineProps<NeoCardProps>(), {
   component: "div",

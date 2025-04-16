@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import type { NeoInputProps } from "../types/neo-input-props";
-import { computed, useAttrs } from "vue";
+import { computed } from "vue";
 
 defineOptions({
   inheritAttrs: false,
@@ -18,7 +18,6 @@ const props = withDefaults(defineProps<NeoInputProps>(), {
   shape: "rounded",
 });
 const model = defineModel();
-const $attrs = useAttrs();
 const className = computed(() => {
   return [`neo-input--shape-${props.shape}`, {
     "neo-input--disabled": props.isDisabled,

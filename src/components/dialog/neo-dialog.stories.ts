@@ -24,11 +24,15 @@ export default meta;
 type Story = StoryObj<typeof NeoDialog>;
 
 export const Rounded: Story = {
+  args: {
+    bodyOverflow: "auto",
+  },
 };
 
 export const Square: Story = {
   args: {
     shape: "square",
+    bodyOverflow: "auto",
   },
 };
 

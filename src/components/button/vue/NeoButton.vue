@@ -35,7 +35,6 @@ const emit = defineEmits<{
 const isButton = computed(() => props.component === "button");
 const $attrs = useAttrs();
 const mergedAttrs = computed(() => {
-  // Remove `disabled` and `type` from attrs if not a <button>
   const { disabled, type, ...rest } = $attrs;
   return isButton.value ? $attrs : rest;
 });
@@ -65,6 +64,13 @@ function handleClick(event: MouseEvent) {
   }
   emit("click", event);
 }
+</script>
+
+<script lang="ts">
+/** This is my nice component documentation */
+export default {
+  name: "NeoButton",
+};
 </script>
 
 <style lang="scss">

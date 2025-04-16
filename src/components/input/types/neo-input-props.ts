@@ -1,4 +1,4 @@
-import type { NeoShape } from "@/types/shape";
+import type { NeoShape } from "../../../types/shape";
 
 export type InputType =
   | "text" | "number" | "email" | "password"

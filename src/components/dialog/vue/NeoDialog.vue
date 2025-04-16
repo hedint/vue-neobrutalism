@@ -29,6 +29,7 @@ import IconClose from "../../icons/vue/IconClose.vue";
 
 const props = withDefaults(defineProps<NeoDialogProps>(), {
   shape: "rounded",
+  bodyOverflow: "hidden",
 });
 const emit = defineEmits(["close"]);
 
@@ -63,12 +64,17 @@ const dialogClassName = computed(() => {
 });
 
 onMounted(() => {
-  documentOverflow.value = document.body.style.overflow || "auto";
-  document.body.style.overflow = "hidden";
+  if (props.bodyOverflow === "hidden") {
+    documentOverflow.value = document.body.style.overflow || "auto";
+    document.body.style.overflow = "hidden";
+  }
+
   document.addEventListener("keydown", onEscPressed);
 });
 onUnmounted(() => {
-  document.body.style.overflow = documentOverflow.value;
+  if (props.bodyOverflow === "hidden") {
+    document.body.style.overflow = documentOverflow.value;
+  }
   document.removeEventListener("keydown", onEscPressed);
 });
 </script>
