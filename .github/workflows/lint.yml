@@ -6,16 +6,11 @@ name: Lint Pull Request
 on:
   pull_request:
     branches: [ master ]
-    # You can also trigger on specific paths if only certain changes need linting
-    # paths:
-    #   - 'src/**'
-    #   - 'package.json'
-    #   - '.eslintrc.js'
 
 jobs:
   lint:
     name: Run Linter
-    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+    runs-on: ubuntu-latest
 
     steps:
       # 1. Checkout the code from the pull request branch
@@ -27,15 +22,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Specify your desired Node.js version
-          cache: 'npm' # Cache npm dependencies
+          node-version: '20'
+          cache: 'npm'
 
-      # 3. Install dependencies (REPLACE with your package manager install command)
-      # Example for Node.js/npm:
+      # 3. Install dependencies
       - name: Install dependencies
-        run: npm ci # 'ci' is often preferred in CI for deterministic installs
+        run: npm ci
 
-      # 4. Run the linter (REPLACE with your actual lint command)
-      # Example for Node.js (ESLint/Prettier):
+      # 4. Run the linter
       - name: Run Lint Checks
-        run: npm run lint # Assuming you have a 'lint' script in package.json
+        run: npm run lint
