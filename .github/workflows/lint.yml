@@ -5,7 +5,7 @@ name: Lint Pull Request
 # Controls when the workflow will run
 on:
   pull_request:
-    branches: [ main ] # Or [ master ] if that's your main branch
+    branches: [ master ]
     # You can also trigger on specific paths if only certain changes need linting
     # paths:
     #   - 'src/**'
