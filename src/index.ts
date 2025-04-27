@@ -7,6 +7,7 @@ import { NeoButton } from "./components/button";
 import { NeoCard } from "./components/card";
 import { NeoDialog } from "./components/dialog";
 import { NeoInput } from "./components/input";
+import { NeoTabs } from "./components/tabs";
 import { NeoTag } from "./components/tag";
 
 import "./assets/styles/theme.css";
@@ -21,5 +22,6 @@ export default {
     app.component("NeoDialog", NeoDialog);
     app.component("NeoInput", NeoInput);
     app.component("NeoTag", NeoTag);
+    app.component("NeoTabs", NeoTabs);
   },
 };

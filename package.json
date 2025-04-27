@@ -1,6 +1,6 @@
 {
   "name": "vue-neobrutalism",
-  "version": "0.3.1",
+  "version": "0.4.1",
   "description": "Vue 3 neobrutalism ui kit",
   "repository": "https://github.com/hedint/vue-neobrutalism",
   "keywords": [
@@ -41,7 +41,7 @@
     "dist"
   ],
   "scripts": {
-    "dev": "vite",
+    "dev": "storybook dev -p 6006",
     "build": "vue-tsc --noEmit && vite build",
     "typecheck": "vue-tsc --noEmit",
     "lint:js": "eslint .",

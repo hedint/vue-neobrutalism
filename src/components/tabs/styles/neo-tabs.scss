@@ -1,0 +1,33 @@
+@use "../../../assets/styles/neo-mixins";
+
+.neo-tabs {
+  display: flex;
+  width: 100%;
+  height: 48px;
+
+  &__item {
+    all: unset;
+    height: 100%;
+    box-sizing: border-box;
+    flex-basis: 0;
+    flex-grow: 1;
+    padding: 0.25rem 0.5rem;
+    border-bottom: var(--neo-border-width) solid var(--neo-border-color);
+    background: var(--neo-primary-bg);
+    border-inline-end: var(--neo-border-width) solid var(--neo-primary-text);
+    color: var(--neo-primary-text);
+    cursor: pointer;
+    font-weight: var(--neo-font-weight);
+    text-align: center;
+
+    @include neo-mixins.smooth-transition;
+
+    &:last-child {
+      border-inline-end: none;
+    }
+
+    &--active {
+      background: var(--neo-accent-bg);
+    }
+  }
+}
