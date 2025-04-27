@@ -9,7 +9,9 @@
       :class="getTabClassName(tab.id)"
       @click="selectTab(tab)"
     >
-      {{ tab.label }}
+      <slot name="tab-view" :tab="tab">
+        {{ tab.label }}
+      </slot>
     </button>
   </div>
 </template>
