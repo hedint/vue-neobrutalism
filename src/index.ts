@@ -12,9 +12,8 @@ import { NeoTag } from "./components/tag";
 
 import "./assets/styles/theme.css";
 
-export { NeoButton };
-export { type NeoButtonProps, NeoCard, NeoCardProps, NeoDialog, NeoDialogProps, NeoInput, NeoInputProps, NeoTag, NeoTagProps };
-
+export { NeoButton, NeoCard, NeoDialog, NeoInput, NeoTabs, NeoTag };
+export type { NeoButtonProps, NeoCardProps, NeoDialogProps, NeoInputProps, NeoTagProps };
 export default {
   install(app: import("vue").App) {
     app.component("NeoButton", NeoButton);
