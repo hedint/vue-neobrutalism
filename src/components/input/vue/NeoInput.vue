@@ -1,5 +1,5 @@
 <template>
-  <input v-bind="$attrs" v-model="model" :disabled="isDisabled" class="neo-input" :class="className">
+  <input v-bind="$attrs" v-model="model" :type="type" :placeholder="placeholder" :disabled="isDisabled" class="neo-input" :class="className">
 </template>
 
 <script setup lang="ts">

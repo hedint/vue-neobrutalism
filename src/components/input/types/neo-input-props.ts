@@ -12,5 +12,5 @@ export interface NeoInputProps {
   isDisabled?: boolean
   isError?: boolean
   isSuccess?: boolean
-  shape: NeoShape
+  shape?: NeoShape
 }
